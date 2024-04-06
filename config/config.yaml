@@ -1,0 +1,91 @@
+storage:
+  type: sqlite
+  path: /data/data.db
+
+endpoints:
+  - name: llama-gateway
+    group: "Sovera Core"
+    url: "https://llama-gateway.sovera.xyz"
+    interval: 5m
+    conditions:
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+
+  - name: llama-gateway-v2
+    group: "Sovera Core"
+    url: "https://llama-gateway-v2.sovera.xyz"
+    interval: 5m
+    conditions:
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+
+  - name: ingress
+    group: "Application Platform"
+    url: "http://sovera.xyz"
+    interval: 5m
+    conditions:
+      - "[STATUS] == 200"
+
+  - name: chatbot
+    group: "Llama Apps"
+    url: "https://chat.sovera.xyz/"
+    interval: 5m
+    conditions:
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+
+  - name: agent-ix
+    group: "Llama Apps"
+    url: "https://ix.sovera.xyz/"
+    interval: 5m
+    conditions:
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+
+  - name: agent-flow
+    group: "Llama Apps"
+    url: "https://flowise.sovera.xyz/"
+    interval: 5m
+    conditions:
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+
+  - name: baby-rag
+    group: "Llama Apps"
+    url: "https://anythingllm.sovera.xyz/"
+    interval: 5m
+    conditions:
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+
+  - name: prompt-ide
+    group: "Sovera Extensions"
+    url: "https://dify.sovera.xyz/"
+    interval: 5m
+    conditions:
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+
+  - name: agent-ide
+    group: "Sovera Extensions"
+    url: "https://superagi.sovera.xyz/"
+    interval: 5m
+    conditions:
+      - "[STATUS] == 404"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+
+  - name: log-stream
+    group: "Application Platform"
+    url: "https://logs.sovera.xyz/"
+    interval: 5m
+    conditions:
+      - "[STATUS] == 401"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
+
+  - name: admin
+    group: "Application Platform"
+    url: "https://admin.sovera.xyz/"
+    interval: 5m
+    conditions:
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"
